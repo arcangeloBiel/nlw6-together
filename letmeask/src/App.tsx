@@ -1,10 +1,20 @@
+import  { BrowserRouter, Route } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { NewRoom } from "./pages/NewRoom";
-import './styles/global.scss';
+//import "./styles/global.scss";
 
 function App() {
   return (
-   <NewRoom />
+    <div>
+  
+    <BrowserRouter>  
+    <Route path="/" exact><Home /></Route>    
+    <Route path="/rooms/new" component={NewRoom}></Route>
+ 
+      
+        
+    </BrowserRouter>
+</div>
   );
 }
 
