@@ -1,3 +1,4 @@
+import firebase from 'firebase/app';
 import { useHistory } from "react-router";
 import illustrationImg from "../assets/images/illustration.svg";
 import logoImg from "../assets/images/logo.svg";
@@ -9,7 +10,10 @@ import { Button } from "../components/Button";
 export function Home() {
   const history = useHistory();
 
-  function navigateToRoom() {
+
+
+  function handleCreateRoom() {
+      const  provider = new firebase.auth.GoogleAuthProvider();
     history.push("/rooms/new");
   }
 
@@ -27,7 +31,7 @@ export function Home() {
         <div className="main-content">
           <img src={logoImg} alt="logo" />
 
-          <button onClick={navigateToRoom} className="create-room">
+          <button onClick={handleCreateRoom} className="create-room">
             <img src={googleIcon} alt="Logo da google" />
             Crie sua sala com o Google
           </button>
